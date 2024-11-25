@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/credentials.css' %}">
+</head>
+<body>
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <h1>Login</h1>
+            <input type="email" name="email" placeholder="Digite seu e-mail" required>
+            <input type="password" name="password" placeholder="Digite sua senha" required>
+            <button type="submit">Entrar</button>
+            <a href="{% url 'previsao:register' %}">Não tem uma conta? Cadastre-se</a>
+        </form>
+    </div>
+</body>
+</html>

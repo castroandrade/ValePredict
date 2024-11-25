@@ -1,15 +1,23 @@
+{%load static%}
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Previsão de Lucro</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Previsão</title>
 </head>
 <body>
-    <h1>Previsão de Lucro</h1>
-
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Calcular</button>
-    </form>
+    
+    <div class = 'container'> 
+        <h1>Previsão de Lucro</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Calcular</button>
+        </form>
+    </div>
 </body>
 </html>

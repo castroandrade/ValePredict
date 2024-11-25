@@ -2,10 +2,14 @@ from django.shortcuts import render
 from .forms import PrevisaoForm
 from .models import DadosAgricolas
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+
 
 def home(request):
     return render(request, 'previsoes/home.html')
 
+@login_required(login_url='previsoes/login.html')
 def calcular_previsao(request):
     if request.method == "POST":
         form = PrevisaoForm(request.POST)
@@ -29,3 +33,13 @@ def calcular_previsao(request):
         form = PrevisaoForm()
 
     return render(request, 'previsoes/calcular.html', {'form': form})
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+    else:
+        form = UserCreationForm()
+    return render(request, 'previsoes/register.html', {'form': form})
