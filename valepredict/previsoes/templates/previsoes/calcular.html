@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Previsão de Lucro</title>
+</head>
+<body>
+    <h1>Previsão de Lucro</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Calcular</button>
+    </form>
+</body>
+</html>

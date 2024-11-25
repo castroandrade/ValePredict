@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultado da Previsão</title>
+</head>
+<body>
+    <h1>Resultado da Previsão de Lucro</h1>
+
+    <p><strong>Cultura:</strong> {{ nome_cultura }}</p>
+    <p><strong>Área disponível para plantio:</strong> {{ area }} hectares</p>
+    <p><strong>Área plantada:</strong> {{ area_plantada }} hectares</p>
+    <p><strong>Valor da produção:</strong> R$ {{ valor_producao }}</p>
+    <p><strong>Custo estimado:</strong> R$ {{ custo }}</p>
+    <p><strong>Lucro estimado:</strong> R$ {{ lucro_estimado }}</p>
+    <p><strong>Prejuízo estimado:</strong> R$ {{ prejuizo_estimado }}</p>
+
+    <a href="{% url 'previsao:calcular_previsao' %}">Voltar</a>
+</body>
+</html>
